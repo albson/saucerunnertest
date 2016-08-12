@@ -1,5 +1,3 @@
-selenium>=2.5
-sauceclient>=0.2.1
-pytest
-pytest-xdist
-requests
+nose==1.3.7
+selenium==2.48.0
+sauceclient==0.2.1
