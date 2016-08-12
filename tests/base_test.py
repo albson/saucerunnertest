@@ -38,9 +38,9 @@ browsers = [{
 #     "browserName": "internet explorer",
 #     "version": "11"
 # }, {
-    "platform": "OS X 10.11",
-    "browserName": "safari",
-    "version": "9"
+    'platform': os.environ.get('SELENIUM_PLATFORM'),
+    'browserName': os.environ.get('SELENIUM_BROWSER'),
+    'version': os.environ.get('SELENIUM_VERSION'),
 }]
 
 
