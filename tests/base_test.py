@@ -38,9 +38,9 @@ browsers = [{
 #     "browserName": "internet explorer",
 #     "version": "11"
 # }, {
-    'platform': os.environ.get('SELENIUM_PLATFORM'),
-    'browserName': os.environ.get('SELENIUM_BROWSER'),
-    'version': os.environ.get('SELENIUM_VERSION'),
+    "platform": "OS X 10.11",
+    "browserName": "safari",
+    "version": "9"
 }]
 
 
@@ -89,9 +89,8 @@ class BaseTest(unittest.TestCase):
         sauce_client = SauceClient(BaseTest.username, BaseTest.access_key)
         status = (sys.exc_info() == (None, None, None))
         sauce_client.jobs.update_job(self.driver.session_id, passed=status)
-        test_name = "%s_%s" % (type(self).__name__, self.__name__)
-        with(open(test_name + '.testlog', 'w')) as outfile:
-            outfile.write("SauceOnDemandSessionID=%s job-name=%s\n" % (self.driver.session_id, test_name))
+        with(open('.testlog', 'w')) as outfile:
+            outfile.write("SauceOnDemandSessionID=%s" % (self.driver.session_id))
 
     @classmethod
     def setup_class(cls):
